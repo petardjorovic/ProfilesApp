@@ -1,0 +1,17 @@
+<div class="col-4 text-center mb-2">
+    <div class="card <% if (user.active) { %>
+        bg-info
+    <% } %>">
+        <div class="card-header"><%= user.full_name %></div>
+        <div class="card-body"><%= user.email %></div>
+        <div class="card-footer">
+            <a href="/delete/<%= user.id %>" class="btn btn-danger">Delete</a>
+            <% if (user.active) { %>
+                <a href="/change/<%= user.id %>/<%= !user.active %>" class="btn btn-warning">Disable</a>
+            <% }else{ %>
+                <a href="/change/<%= user.id %>/<%= !user.active %>" class="btn btn-success">Enable</a>
+            <% } %>
+            <a href="/edit/<%= user.id %>" class="btn btn-secondary">Edit</a>
+        </div>
+    </div>
+</div>
